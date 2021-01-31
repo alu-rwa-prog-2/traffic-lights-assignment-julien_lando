@@ -1,0 +1,4 @@
+This program creates a hashmap in the form of a key and value.
+A hashmap is a data structure that implements an associative array abstarct data
+type. In this program we are going to copy elements from one mappinng into
+another one. We do this by using an inbuilt method called hashmapname1.putall(hashmapname2). At the start of the program we have 4 mappings namely countries population, capitalcities and age. At first we copied the mappings in countries to capital cities, the next thing we id is we copied mappings from capital cities to countries, last we copied mappings from age to population. What we learned from this is that you can't copy mappings in hashmaps with different types of input.
