@@ -1,3 +1,5 @@
+// Author: Gihozo Landelin(main) & Julien Barezi
+
 // Import the HashMap class
 import java.util.HashMap;
 
