@@ -1,0 +1,162 @@
+Welcome to the traffic lights program documentation
+
+This program is designed to simulate the normal traffic light system that we see in the roads. 
+
+The sequence of the lights or how the lights changes in our program is by the order of red, yellow and green.
+
+The challenge here is to collect 100 cars and then the cars have to respect the colors rules while getting 
+out of the collection. By end of the program, all 100 cars should be gone, which means in the collection 
+there should be 0 cars for the program to end. 
+
+The colors rules states that:
+
+For red: no colors should get out and it should last 20 seconds
+
+For yellow: cars should get out but only one by one every 2 seconds. Since it should last 10 seconds, 
+that means only 5 cars should get out. 
+
+For green: cars should get out one by one every second. Since it should last 30 seconds, 
+that means only 30 cars will get out. 
+
+
+Another important thing to note is that throughout the program, the cars will be generated randomly and added 
+in the queue regardless of the traffic light. Only 20 cars can be added a time. 
+
+
+Algorithm of our program:
+
+Taking the above constraints into consideration, we devised a strategy where cars will be added 
+throughout the program and be removed according to the rules of the lights. 
+
+How?
+
+Before we get into the step by step of our program, it is important to know that we have taken 
+these things into consideration:
+
+- Firstly, the order of our colors will be red - yellow - green sequentially.
+
+- Secondly, our program will have 3 rounds of traffic lights. This means that there will be 3 red, 
+3 yellow and 3 green for all cars to get out of the collection. 
+
+- Last but not least, We used "CarModels - number" in adding cars which in real traffic system can be seen 
+as models with a given plate number. 
+
+Now let's dive into the step by step of the program
+
+On the 1st red: 
+
+- 15 cars of the plate numbers ranging from 1 to 15 are randomly added in the car collection and no cars gets out. 
+- Each second 1 car is added and after 15 seconds, a waiting message is printed to indicate that 20 seconds 
+are not yet reached.
+- After 20 seconds of red are over, total cars(15 cars) are printed and time taken by the red light 
+is printed to get assurance that it took exactly 20 seconds. Then yellow comes..
+
+On the 1st yellow: 
+
+-  15 cars of the plate numbers ranging from 16 to 30 are randomly added in the car collection and 1 car is removed,
+all in the first 2 seconds of the yellow light. 
+
+- Then other 4 cars are randomly removed in the car collection in 8 seconds, each car in 2 seconds. 
+
+- After the 10 seconds are over, the remaining cars are 25 cars with reasoning as follows:
+15 cars(in the 1st red light) + 15 cars(added in yellow) - 5 cars(removed). The total remaining cars
+is then printed and the time taken by the yellow light is printed to get assurance
+that it took exactly 20 seconds. Then green comes..
+
+On the 1st green:
+
+- 20 cars of the plate numbers ranging from 31 to 50 are randomly added in the car collection and 1 car is removed,
+all in the first 1 second of the green light. 
+
+- Then other 29 cars are randomly removed in the car collection in 29 seconds, each
+car in 1 second. 
+
+- After the 30 seconds are over, the remaining cars are 15 cars with reasoning as follows:
+25 cars(left in the 1st yellow) + 20 cars(added in the green) - 30 cars(removed in the green).
+The total remaining cars is then printed and the time taken by the green light is printed to get assurance
+that it took exactly 30 seconds. Then the 2nd red comes..
+
+By the end of the first batch of lights: 50 cars have been added(which includes 15 added in red,
+15 added in yellow and 20 added in green) and 35 cars have been removed (which includes 5 removed 
+in yellow and 30 removed in green). Now we are remaining with 15 cars in the collection
+
+On the 2nd red: 
+
+- 15 cars of the plate numbers ranging from 51 to 65 are randomly added in the car collection and no cars gets out. 
+- Each second 1 car is added and after 15 seconds, a waiting message is printed to indicate 
+that 20 seconds are not yet reached.
+- After 20 seconds of red are over, total remaining cars(30 cars: 15 cars(remained in the 
+first batch + 15 added in 2nd red)) are printed and time taken by the red light is printed to get assurance
+that it took exactly 20 seconds. Then 2nd yellow comes..
+
+On the 2nd yellow: 
+
+-  15 cars of the plate numbers ranging from 66 to 80 are randomly added in the car collection and 1 car is removed,
+all in the first 2 seconds of the yellow light. 
+
+- Then other 4 cars are randomly removed in the car collection in 8 seconds, each
+car in 2 seconds. 
+
+- After the 10 seconds are over, the remaining cars are 40 cars with reasoning as follows:
+30 cars(remained in 2nd red light) + 15 cars(added in yellow) - 5 cars(removed). The total remaining cars
+is then printed and the time taken by the yellow light is printed to get assurance
+that it took exactly 20 seconds. Then 2nd green comes..
+
+On the 2nd green:
+
+- 20 cars of the plate numbers ranging from 81 to 100 are randomly added in the car collection and 1 car is removed, 
+all in the first 1 second of the green light. 
+
+- Then other 29 cars are randomly removed in the car collection in 29 seconds, each
+car in 1 second. 
+
+- After the 30 seconds are over, the remaining cars are 30 cars with reasoning as follows:
+40 cars(left in the 2nd yellow) + 20 cars(added in the green) - 30 cars(removed in the green).
+The total remaining cars is then printed and the time taken by the green light is printed to get assurance
+that it took exactly 30 seconds. Then the 3rd red comes..
+
+By the end of the second batch: 100 cars have been added(which includes 50 added in the first batch,
+15 added in 2nd red, 15 added in 2nd yellow and 20 added in 2nd green) and 70 cars have been 
+removed (which includes 35 removed in the first batch, 5 removed in 2nd yellow and 30 removed in 2nd green). 
+Now we are remaining with 30 cars in the collection
+
+
+On the 3rd red light
+
+- No car is added because 100 cars are over on the second batch of lights. A waiting message is printed 
+showing how seconds are counted.
+
+- After 20 seconds are over, the remaining cars are 30 cars because no car has been added. 
+The total remaining cars are then printed and the time taken by the red light is printed to get assurance
+that it took exactly 20 seconds. Then 3rd yellow comes..
+
+On the 3rd yellow light 
+
+- No car is added and 5 cars are removed in the car collection in 10 seconds each in 2 seconds. 
+
+- After 10 seconds are over, the remaining cars are 25 cars with reasoning as follows:
+30 cars(remained in the 2nd batch) - 5 cars(removed in the yellow). Then the total remaining
+cars is printed and the time taken is printed to get the assurance that it took
+exactly 10 seconds. Then 3rd green comes..
+
+On the 3rd green light
+
+- No car is added and 25 cars remained in the 3rd yellow light are removed in 25 seconds each in 1 second, 
+then a waiting message is printed showing the 5 seconds left on the first 25 seconds to make up the total of 
+30 seconds. 
+
+- After 30 seconds are over, there are no remaining cars in the car collection because the 25 cars that were left
+in the yellow light have been removed. The total time taken is printed to get the assurance that it took 30 seconds
+and then total remaining cars is now zero(0)
+
+By the end of the third batch, 100 cars have been added(in the first 2 batches) and all the cars 
+have been removed in the car collection(includes 70 removed in the 2 batches,  5 removed in yellow and 25 removed in green)
+
+
+Now that all the constraints are met, the program ends.
+
+
+
+
+
+
